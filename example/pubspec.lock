@@ -62,6 +62,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_spinning_wheel:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: "8e9bccc3501d7d2ae5c3f7f55330b9c014e75cbc"
+      url: "git@github.com:lecicdjuro/flutter-spinning-wheel.git"
+    source: git
+    version: "1.1.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -82,12 +91,12 @@ packages:
     source: hosted
     version: "1.1.8"
   multi_charts:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
-      name: multi_charts
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.0"
+      path: ".."
+      relative: true
+    source: path
+    version: "0.2.2"
   path:
     dependency: transitive
     description:
