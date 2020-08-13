@@ -6,6 +6,7 @@ import 'utils/separated_value.dart';
 
 class PieChartPainter extends CustomPainter {
   final List<double> values;
+  final List<String> labels;
   final Color labelColor;
   List<Color> sliceFillColors;
   final double textScaleFactor;
@@ -17,6 +18,7 @@ class PieChartPainter extends CustomPainter {
 
   PieChartPainter(
       this.values,
+      this.labels,
       this.labelColor,
       this.sliceFillColors,
       this.textScaleFactor,
@@ -33,6 +35,7 @@ class PieChartPainter extends CustomPainter {
         canvas,
         chartCenter,
         values.map((v) => v * dataAnimationPercent).toList(),
+        labels,
         sliceFillColors,
         PaintUtils.getTextSize(size, textScaleFactor),
         separateFocusedValue,

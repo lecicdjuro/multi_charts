@@ -38,8 +38,8 @@ class MyApp extends StatelessWidget {
           ),
           //Pie Chart
           PieChart(
-            values: [15, 10, 30, 25, 20],
-            labels: ["Label1", "Label2", "Label3", "Label4", "Label5"],
+            values: [10, 10, 10, 10, 10, 10, 10],
+            labels: ["Label1", "Label2", "Label3", "Label4", "Label5", "Label6", "Label7"],
             sliceFillColors: [
               Colors.blueAccent,
               Colors.greenAccent,
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
               Colors.red,
             ],
             animationDuration: Duration(milliseconds: 1500),
-            legendPosition: LegendPosition.Right,
+            showLegend: false,
           ),
         ]),
       ),

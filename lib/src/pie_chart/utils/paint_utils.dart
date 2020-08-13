@@ -18,6 +18,7 @@ class PaintUtils {
       Canvas canvas,
       Offset center,
       List<double> values,
+      List<String> labels,
       List<Color> sliceFillColors,
       double textSize,
       bool separateFocusedValue,
@@ -28,6 +29,8 @@ class PaintUtils {
       Color labelColor) {
     double calculatedStartAngle = startAngle * (pi / 180);
     values.asMap().forEach((index, chartValue) {
+
+      String text = labels.elementAt(index);
       var length = legendPosition == LegendPosition.Bottom ||
               legendPosition == LegendPosition.Top
           ? center.dy
@@ -59,7 +62,7 @@ class PaintUtils {
                   (length * 2 - 25) / 3, cStartAngle + cSliceAngle / 2),
               getYPosition(
                   (length * 2 - 25) / 3, cStartAngle + cSliceAngle / 2));
-          drawLabelText(canvas, chartValue, textSize, labelColor, center,
+          drawLabelText(canvas, text, textSize, labelColor, center,
               (cStartAngle + cSliceAngle / 2) * (180 / pi) - startAngle);
           canvas.restore();
         }
@@ -83,7 +86,7 @@ class PaintUtils {
                   calculatedStartAngle + calculateArcLength(chartValue) / 2));
           drawLabelText(
               canvas,
-              chartValue,
+              text,
               textSize,
               labelColor,
               center,
@@ -121,11 +124,11 @@ class PaintUtils {
             getFillPaint(legendIconFillColor));
   }
 
-  static void drawLabelText(Canvas canvas, double value, double textSize,
+  static void drawLabelText(Canvas canvas, String value, double textSize,
       Color labelColor, Offset center, double angle) {
     var textPainter = TextPainter(textDirection: TextDirection.ltr);
     textPainter.text = TextSpan(
-        text: "$value%",
+        text: "$value",
         style: TextStyle(color: labelColor, fontSize: textSize));
     textPainter.textAlign = TextAlign.center;
 

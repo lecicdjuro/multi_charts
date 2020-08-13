@@ -271,6 +271,7 @@ class _PieChartState extends State<PieChart>
     return CustomPaint(
       painter: PieChartPainter(
           widget.values,
+          widget.labels,
           widget.labelColor,
           _sliceFillColors,
           widget.textScaleFactor,
