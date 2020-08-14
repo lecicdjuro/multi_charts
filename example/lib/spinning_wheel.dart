@@ -130,12 +130,6 @@ class _SpinningWheelScreeState extends State<SpinningWheelScreen> {
             child: RaisedButton(child: Text('pin the wheel'), onPressed:() =>
                 _wheelNotifier.sink.add(_generateRandomVelocity()) ,)
 
-//            FooterButton(
-//                type: ButtonType.RAISED,
-//                buttonColor: iconPrimary,
-//                text: 'spin the wheel',
-//                onButtonPressed: () =>
-//                    _wheelNotifier.sink.add(_generateRandomVelocity())),
           )
         ]))));
   }
