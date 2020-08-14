@@ -29,7 +29,6 @@ class PaintUtils {
       Color labelColor) {
     double calculatedStartAngle = startAngle * (pi / 180);
     values.asMap().forEach((index, chartValue) {
-
       String text = labels.elementAt(index);
       var length = legendPosition == LegendPosition.Bottom ||
               legendPosition == LegendPosition.Top
@@ -80,9 +79,9 @@ class PaintUtils {
         if (isAnimationOver) {
           canvas.save();
           canvas.translate(
-              getXPosition((length * 2 - 35) / 3,
+              getXPosition((length * 2) / 3,
                   calculatedStartAngle + calculateArcLength(chartValue) / 2),
-              getYPosition((length * 2 - 35) / 3,
+              getYPosition((length * 2) / 3,
                   calculatedStartAngle + calculateArcLength(chartValue) / 2));
           drawLabelText(
               canvas,
@@ -129,8 +128,11 @@ class PaintUtils {
     var textPainter = TextPainter(textDirection: TextDirection.ltr);
     textPainter.text = TextSpan(
         text: "$value",
-        style: TextStyle(color: labelColor, fontSize: textSize));
-    textPainter.textAlign = TextAlign.center;
+        style: TextStyle(
+            color: labelColor,
+            fontSize: textSize,
+            fontWeight: FontWeight.bold));
+    textPainter.textAlign = TextAlign.start;
 
     textPainter.layout();
     //top-left
